@@ -32,3 +32,11 @@ function DBQuery($sql)
     }
     return $ret;
 }
+
+function DBDop($sql)
+{
+    DBConnect();
+    mysql_query($sql);
+    echo 'новость добавлена в базу данных';
+
+}
