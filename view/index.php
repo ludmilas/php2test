@@ -9,5 +9,9 @@
         <div><?=$article['text'];?></div>
     </article>
     <?php endforeach; ?>
+    <?php
+    include('forma_insert.php');
+    ?>
+
 </body>
 </html>
