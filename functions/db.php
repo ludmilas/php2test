@@ -33,10 +33,12 @@ function DBQuery($sql)
     return $ret;
 }
 
-function DBDop($sql)
+function DBExec($sql)
 {
     DBConnect();
-    mysql_query($sql);
-    echo 'новость добавлена в базу данных';
-
+    $res = mysql_query($sql);
+    if (!$res) {
+        echo mysql_error();
+        return array();
+    }
 }
