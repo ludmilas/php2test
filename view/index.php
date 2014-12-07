@@ -9,8 +9,12 @@
         <div><?=$article['text'];?></div>
     </article>
     <?php endforeach; ?>
+
+
     <?php
     include('forma_insert.php');
+    include('forma_new.php');
+    include('redact.php');
     ?>
 
 </body>
