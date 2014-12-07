@@ -15,3 +15,10 @@ function News_insert($title,$new)
     DBExec("INSERT INTO `news` (`title`, `text`) VALUES ('$title', '$new')");
 
 }
+function Oun_new($i)
+
+{
+    return DBQuery("
+    SELECT * FROM news WHERE id=$i
+    ");
+}
