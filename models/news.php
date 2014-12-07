@@ -9,9 +9,9 @@ function News_getAll()
     ");
 }
 
-function News_new()
+function News_insert($title,$new)
 {
 
-    DBDop("INSERT INTO `news` (`title`, `text`) VALUES ('".$_POST['title']."', '".$_POST['new']."')");
+    DBExec("INSERT INTO `news` (`title`, `text`) VALUES ('$title', '$new')");
 
 }
