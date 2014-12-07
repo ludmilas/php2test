@@ -8,3 +8,10 @@ function News_getAll()
     SELECT * FROM news
     ");
 }
+
+function News_new()
+{
+
+    DBDop("INSERT INTO `news` (`title`, `text`) VALUES ('".$_POST['title']."', '".$_POST['new']."')");
+
+}
