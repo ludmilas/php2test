@@ -1,10 +1,12 @@
 <?php
 
-require_once __DIR__ . '/../functions/db.php';
+require_once __DIR__ . '/../class/cl.php';
 
+$base = new Database();
+var_dump($base);
 function News_getAll()
 {
-    return DBQuery("
+    return $base->DBQuery("
     SELECT * FROM news
     ");
 }
@@ -12,13 +14,13 @@ function News_getAll()
 function News_insert($title,$new)
 {
 
-    DBExec("INSERT INTO `news` (`title`, `text`) VALUES ('$title', '$new')");
+    $base->DBExec("INSERT INTO `news` (`title`, `text`) VALUES ('$title', '$new')");
 
 }
 function Oun_new($i)
 
 {
-    return DBQuery("
+    return $base->DBQuery("
     SELECT * FROM news WHERE id=$i
     ");
 }
