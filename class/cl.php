@@ -9,7 +9,7 @@ class Database
 
     public function __construct()
     {
-        $config = $this->config;
+        $config = $this->config();
         mysql_connect(
             $config['db']['host'],
             $config['db']['user'],
@@ -36,10 +36,12 @@ class Database
     public function DBExec($sql)
     {
         $res = mysql_query($sql);
-        if (!$res) {
-            echo mysql_error();
+        if ($res === false) {
+
             return false;
         }
-
+        else {
+            return true;
+        }
     }
 }
