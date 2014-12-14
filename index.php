@@ -1,7 +1,10 @@
 <?php
 
 require_once __DIR__ . '/models/news.php';
+require_once __DIR__ . '/class/View.php';
+$Views = new View(view);
 
-$news =$st->News_getAll();
+$Views->news = $st->News_getAll();
 
-include ('view/index.php');
+$Views->display('index.php');
+
