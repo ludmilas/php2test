@@ -5,7 +5,7 @@
 </head>
 <body>
 
-     <?php foreach ($Views as $article): ?>
+     <?php foreach ($news as $article): ?>
     <article>
         <h1><?=$article['title'];?></h1>
         <div><?=$article['text'];?></div>
@@ -13,11 +13,11 @@
     <?php endforeach; ?>
 
 
-    <?php
-    include('forma_insert.php');
-    include('forma_new.php');
-    include('redact.php');
-    ?>
+<?php
+  include('forma_insert.php');
+  include('forma_new.php');
+  include('redact.php');
+?>
 
 </body>
 </html>
