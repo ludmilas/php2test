@@ -6,5 +6,7 @@ $Views = new View(view);
 
 $Views->news = $st->News_getAll();
 
-$Views->display('index.php');
 
+$html = $Views->display('index.php');
+
+echo $html;
