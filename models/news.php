@@ -1,9 +1,9 @@
 <?php
 
-require_once __DIR__ . '/../class/Database.php';
-require_once __DIR__ . '/../class/Newmod.php';
+//require_once __DIR__ . '/../class/Database.php';
+//require_once __DIR__ . '/../class/Newmod.php';
 
-$st = new Newmod();
+//$st = new Newmod();
 /*function News_getAll()
 {
     $base = new Database();
