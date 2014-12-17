@@ -13,11 +13,12 @@
     <?php endforeach; ?>
 
 
-<?php
-  include('forma_insert.php');
-  include('forma_new.php');
-  include('redact.php');
-?>
+
+<a href='form_add.php'> Добавить новость</a>
+     <a href='new_oun.php'> Просмотр новости</a>
+     <a href='new_red.php'> Редактировать </a>
+
+
 
 </body>
 </html>
