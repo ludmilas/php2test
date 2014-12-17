@@ -1,7 +1,7 @@
 <?php
 
-require_once __DIR__ . '/../class/cl.php';
-require_once __DIR__ . '/../class/clmod.php';
+require_once __DIR__ . '/../class/Database.php';
+require_once __DIR__ . '/../class/Newmod.php';
 
 $st = new Newmod();
 /*function News_getAll()
