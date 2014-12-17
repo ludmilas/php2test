@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/clstor.php';
+require_once __DIR__ . '/Storage.php';
 class View extends Storage{
   public $p;
     public function __construct($puth){
