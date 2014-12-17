@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/class/clstor.php';
+require 'boot.php';
 $st = new Storage();
 $st->title = 'первая новость';
 $st->text = 'В лесу родилась ёлочка';
