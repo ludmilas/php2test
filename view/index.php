@@ -14,9 +14,9 @@
 
 
 
-<a href='form_add.php'> Добавить новость</a>
-     <a href='new_oun.php'> Просмотр новости</a>
-     <a href='new_red.php'> Редактировать </a>
+<a href='index.php?r=news/fadd'> Добавить новость</a>
+     <a href='index.php?r=news/soun'> Просмотр новости</a>
+     <a href='index.php?r=news/sred'> Редактировать </a>
 
 
 
