@@ -1,4 +1,4 @@
 <?php
-require 'boot.php';
+/*require 'boot.php';
 $controller = new NewsController();
-$controller->action('sred');
+$controller->action('sred');*/
