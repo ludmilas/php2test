@@ -1,6 +1,6 @@
 <?php
 
-require 'boot.php';
+/*require 'boot.php';
 
 if (isset($_POST['title']) and isset($_POST['new'])) {
     $name_new = $_POST['title'];
@@ -16,5 +16,5 @@ else
 {
 
     header('location:index.php');
-}
+}*/
 
