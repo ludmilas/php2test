@@ -1,5 +1,5 @@
 <?php
-require 'boot.php';
+/*require 'boot.php';
 $id=$_GET['id'];
 if (isset($_POST['title']) and isset($_POST['text'])) {
     $name_new = $_POST['title'];
@@ -15,4 +15,4 @@ else
 {
 
     header('location:index.php');
-}
+}*/
