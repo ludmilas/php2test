@@ -61,4 +61,42 @@ protected function actionAll()
         $html = $Views->display('forma_redact.php');
         echo $html;
     }
+    protected function actionAdd()
+    {
+        if (isset($_POST['title']) and isset($_POST['new'])) {
+            $name_new = $_POST['title'];
+            $text_new = $_POST['new'];
+            $st = new Newmod();
+            $r =$st->News_insert($name_new, $text_new);
+
+        }
+        if ($r === false) {
+            echo 'ошибка';
+        }
+        else
+        {
+
+            header('location:index.php?r=news/all');
+        }
+    }
+
+    protected function actionRednew()
+    {
+        $id=$_GET['id'];
+        if (isset($_POST['title']) and isset($_POST['text'])) {
+            $name_new = $_POST['title'];
+            $text_new = $_POST['text'];
+            $st = new Newmod();
+            $s = $st->New_up($id, $name_new, $text_new);
+
+        }
+        if ($s === false) {
+            echo 'ошибка';
+        }
+        else
+        {
+
+            header('location:index.php?r=news/all');
+        }
+    }
 }
