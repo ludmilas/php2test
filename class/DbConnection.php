@@ -11,8 +11,8 @@ class DbConnection extends Model {
     {
         $config = static::config();
 
-        $dsn = 'mysql:dbname=$config[db][dbname];host=$config[db][host]';
-        $dbh = new Pdo($dsn, $config[db][user], $config[db][password]);
+        $dsn = 'mysql:dbname='.$config['db']['dbname'].';host='.$config['db']['host'];
+        $dbh = new Pdo($dsn, $config['db']['user'], $config['db']['password']);
 
     }
    static function findAll()
