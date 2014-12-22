@@ -12,12 +12,12 @@ class DbConnection  {
         $config = static::config();
 
         $dsn = 'mysql:dbname='.$config['db']['dbname'].';host='.$config['db']['host'];
-        $dbh = new Pdo($dsn, $config['db']['user'], $config['db']['password']);
+       return $dbh = new Pdo($dsn, $config['db']['user'], $config['db']['password']);
 
     }
    static function findAll($table)
    {
-       $sql = 'SELECT * FROM' . $table;
+       $sql = 'SELECT * FROM'.$table;
        $dbh = static::getConnection();
        $sth = $dbh->prepare($sql);
        $sth->execute();
