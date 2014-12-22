@@ -11,7 +11,7 @@ static function getTableName()
 }
 static function findAll()
 {
-    static::getTableName();
+  $table=static::getTableName();
     $conn = new DbConnection;
 return $conn::findAll($table);
 
