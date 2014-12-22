@@ -1,7 +1,7 @@
 <?php
 
 
-class DbConnection extends Model {
+class DbConnection  {
 
     static function config()
     {
@@ -15,9 +15,9 @@ class DbConnection extends Model {
         $dbh = new Pdo($dsn, $config['db']['user'], $config['db']['password']);
 
     }
-   static function findAll()
+   static function findAll($table)
    {
-       $sql = 'SELECT * FROM' . static::$table;
+       $sql = 'SELECT * FROM' . $table;
        $dbh = static::getConnection();
        $sth = $dbh->prepare($sql);
        $sth->execute();
