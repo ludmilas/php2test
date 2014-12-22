@@ -13,7 +13,7 @@ static function findAll()
 {
     static::getTableName();
     $conn = new DbConnection;
-$conn::findAll($table);
+return $conn::findAll($table);
 
 }
 
