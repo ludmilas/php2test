@@ -5,8 +5,8 @@ class NewsController extends AController {
 protected function actionAll()
 {
     $Views = new View(view);
-    //$st = new Newmod();
-    var_dump(Newmod::findAll());
+   // $st = new Newmod();
+
     $Views->news = Newmod::findAll();
 
 
@@ -24,8 +24,8 @@ protected function actionAll()
     protected function actionSoun()
     {
         $Views = new View(view);
-        $st = new Newmod();
-        $Views->news = $st->News_getAll();
+        //$st = new Newmod();
+        $Views->news = Newmod::findAll();
 
 
         $html = $Views->display('forma_new.php');
@@ -36,8 +36,8 @@ protected function actionAll()
     {
         $id=$_GET['id'];
         $Views = new View(view);
-        $st = new Newmod();
-        $Views->oun = $st->Oun_new($id);
+        //$st = new Newmod();
+        $Views->oun = Newmod::findByPk($id);
         $html = $Views->display('oun_new.php');
         echo $html;
     }
