@@ -12,10 +12,18 @@ static function getTableName()
 static function findAll()
 {
   $table=static::getTableName();
-    $conn = new DbConnection;
-return $conn::findAll($table);
+
+    $sql = 'SELECT * FROM '.$table;
+    return DbConnection::query($sql);
 
 }
+    static function findByPk($id)
+    {
+        $table=static::getTableName();
 
+        $sql = 'SELECT * FROM '.$table.' WHERE id=:id';
+        return DbConnection::queryoun($sql,$id);
+
+    }
 
 }
