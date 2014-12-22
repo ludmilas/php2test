@@ -15,9 +15,8 @@ class DbConnection  {
        return $dbh = new Pdo($dsn, $config['db']['user'], $config['db']['password']);
 
     }
-   static function findAll($table)
+   static function query($sql)
    {
-       $sql = 'SELECT * FROM'.$table;
        $dbh = static::getConnection();
        $sth = $dbh->prepare($sql);
        $sth->execute();
@@ -26,7 +25,13 @@ class DbConnection  {
 
    }
 
-
+    static function queryoun($sql,$id)
+    {
+        $dbh = static::getConnection();
+        $sth = $dbh->prepare($sql);
+        $sth->execute(array(':id' => $id));
+        return $sth->fetchAll();
+    }
 
 
 }
