@@ -9,8 +9,13 @@ static function getTableName()
     return static::$table;
 
 }
+static function findAll()
+{
+    static::getTableName();
+    $conn = new DbConnection;
+$conn::findAll($table);
 
-
+}
 
 
 }
