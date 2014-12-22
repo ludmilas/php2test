@@ -5,8 +5,9 @@ class NewsController extends AController {
 protected function actionAll()
 {
     $Views = new View(view);
-    $st = new Newmod();
-    $Views->news = $st->News_getAll();
+    //$st = new Newmod();
+    var_dump(Newmod::findAll());
+    $Views->news = Newmod::findAll();
 
 
     $html = $Views->display('index.php');
