@@ -25,5 +25,17 @@ static function findAll()
         return DbConnection::queryoun($sql,$id);
 
     }
+    static function findAdd($title,$new)
+    {
+        $table=static::getTableName();
+        $sql = 'INSERT INTO '.$table.' (`title`, `text`) VALUES ('.$title.','.$new.')';
+        return DbConnection::queryadd($sql);
+    }
 
+    static function findUp($i,$title,$new)
+    {
+        $table=static::getTableName();
+        $sql = 'UPDATE '.$table.' SET title='.$title.',text='.$new.' WHERE id=:id';
+        return DbConnection::queryredd($sql,$i);
+    }
 }
