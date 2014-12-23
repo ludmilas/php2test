@@ -19,6 +19,7 @@ class DbConnection  {
    {
        $dbh = static::getConnection();
        $sth = $dbh->prepare($sql);
+       $sth->setFetchMode(PDO::FETCH_OBJ);
        $sth->execute();
        return $sth->fetchAll();
 
@@ -46,7 +47,7 @@ class DbConnection  {
     {
         $dbh = static::getConnection();
         $sth = $dbh->prepare($sql);
-        $sth->setFetchMode(PDO::FETCH_OBJ);
+       // $sth->setFetchMode(PDO::FETCH_OBJ);
         $sth->execute(array(':id' => $id));
         if ($sth===false)
             return false;
