@@ -44,9 +44,8 @@ protected function actionAll()
     protected function actionSred()
     {
         $Views = new View(view);
-        $st = new Newmod();
-        $Views->news = $st->News_getAll();
-
+        //$st = new Newmod();
+        $Views->news = Newmod::findAll();
 
         $html = $Views->display('redact.php');
 
@@ -57,8 +56,8 @@ protected function actionAll()
     {
         $id=$_GET['id'];
         $Views = new View(view);
-        $st = new Newmod();
-        $Views->redact = $st->Oun_new($id);
+        //$st = new Newmod();
+        $Views->redact = Newmod::findByPk($id);
         $html = $Views->display('forma_redact.php');
         echo $html;
     }
@@ -67,8 +66,8 @@ protected function actionAll()
         if (isset($_POST['title']) and isset($_POST['new'])) {
             $name_new = $_POST['title'];
             $text_new = $_POST['new'];
-            $st = new Newmod();
-            $r =$st->News_insert($name_new, $text_new);
+            //$st = new Newmod();
+            $r = Newmod::findAdd($name_new, $text_new);
 
         }
         if ($r === false) {
@@ -87,8 +86,8 @@ protected function actionAll()
         if (isset($_POST['title']) and isset($_POST['text'])) {
             $name_new = $_POST['title'];
             $text_new = $_POST['text'];
-            $st = new Newmod();
-            $s = $st->New_up($id, $name_new, $text_new);
+           // $st = new Newmod();
+            $s = Newmod::findUp($id, $name_new, $text_new);
 
         }
         if ($s === false) {
