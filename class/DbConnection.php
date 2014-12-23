@@ -33,5 +33,23 @@ class DbConnection  {
         return $sth->fetchAll();
     }
 
-
+    static function queryadd($sql)
+    {
+        $dbh = static::getConnection();
+        $sth = $dbh->prepare($sql);
+        $sth->execute();
+        if ($sth===false)
+            return false;
+        else return true;
+    }
+    static function queryredd($sql,$id)
+    {
+        $dbh = static::getConnection();
+        $sth = $dbh->prepare($sql);
+        $sth->setFetchMode(PDO::FETCH_OBJ);
+        $sth->execute(array(':id' => $id));
+        if ($sth===false)
+            return false;
+        else return true;
+    }
 }
