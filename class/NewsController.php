@@ -66,8 +66,10 @@ protected function actionAll()
         if (isset($_POST['title']) and isset($_POST['new'])) {
             $name_new = $_POST['title'];
             $text_new = $_POST['new'];
-            //$st = new Newmod();
-            $r = Newmod::findAdd($name_new, $text_new);
+            $st = new Newmod();
+            $st->title = $name_new;
+            $st->text = $text_new;
+            $r = $st->save();
 
         }
         if ($r === false) {
