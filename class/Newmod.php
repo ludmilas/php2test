@@ -4,4 +4,5 @@
 class Newmod extends Model {
 
 static protected $table = 'news';
+static protected $columns = array('title', 'text');
 }
