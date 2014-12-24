@@ -3,51 +3,51 @@
 
 class DbConnection  {
 
-    static function config()
+    private $pdo;
+    private function config()
     {
         return include __DIR__ . '/../config.php';
     }
-    static function getConnection()
+    public function __construct()
     {
-        $config = static::config();
+        $config = $this->config();
 
         $dsn = 'mysql:dbname='.$config['db']['dbname'].';host='.$config['db']['host'];
-       return $dbh = new Pdo($dsn, $config['db']['user'], $config['db']['password']);
+        $this->pdo = new Pdo($dsn, $config['db']['user'], $config['db']['password']);
 
     }
-   static function query($sql)
+   public function query($sql)
    {
-       $dbh = static::getConnection();
-       $sth = $dbh->prepare($sql);
-       $sth->setFetchMode(PDO::FETCH_OBJ);
+
+       $sth = $this->pdo->prepare($sql);
+       $sth->setFetchMode((PDO::FETCH_OBJ));
        $sth->execute();
        return $sth->fetchAll();
 
 
    }
 
-    static function queryoun($sql,$id)
+    public function queryoun($sql,$id)
     {
-        $dbh = static::getConnection();
-        $sth = $dbh->prepare($sql);
+
+        $sth = $this->pdo->prepare($sql);
         $sth->execute(array(':id' => $id));
         return $sth->fetchAll();
     }
 
-    static function queryadd($sql)
+    public function queryadd($sql, $values)
     {
-        $dbh = static::getConnection();
-        $sth = $dbh->prepare($sql);
-        $sth->execute();
+        $sth = $this->pdo->prepare($sql);
+        $sth->execute($values);
         if ($sth===false)
             return false;
         else return true;
     }
-    static function queryredd($sql,$id)
+    public function queryredd($sql,$id)
     {
-        $dbh = static::getConnection();
-        $sth = $dbh->prepare($sql);
-       // $sth->setFetchMode(PDO::FETCH_OBJ);
+
+        $sth = $this->pdo->prepare($sql);
+
         $sth->execute(array(':id' => $id));
         if ($sth===false)
             return false;
