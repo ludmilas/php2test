@@ -1,7 +1,6 @@
 <?php
 
 abstract class Model {
-
 static protected $table;
 static protected $columns = array();
 static function getTableName()
@@ -44,27 +43,46 @@ static function findAll()
         return $mod->queryredd($sql,$i);
     }*/
 
- public $isNew = true;
 
     public function save()
     {
         $table=static::getTableName();
         $tokens = array();
         $values = array();
+        $col = array();
         foreach(static::$columns as $column){
             $tokens[] = ':' . $column;
             $values[':' . $column] =  $this->$column;
+            $col[] = $column . '=:' . $column;
         }
-      if ($this->isNew){
+      if (!isset($this->id)){
           $sql = 'INSERT INTO ' . $table . '
           (' . implode(',',static::$columns). ')
           VALUES
           ('. implode(',', $tokens). ')';
           $mod = new DbConnection();
           return $mod->queryadd($sql, $values);
-      }
+          $this->id = $mod->pdo->lastInsertId();
 
+      }
+     else {
+
+
+
+         $sql = 'UPDATE ' . $table . ' SET ' . implode(',', $col) . ' WHERE id=:id';
+
+         $mod = new DbConnection();
+         return $mod->queryredd($sql, $this->id, $values);
+     }
     }
 
+    static function delete($id){
 
+        $table=static::getTableName();
+
+        $sql = 'DELETE FROM '.$table.' WHERE id=:id';
+        $mod = new DbConnection();
+        return $mod->querydeloun($sql,$id);
+
+    }
 }
