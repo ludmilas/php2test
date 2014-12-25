@@ -17,7 +17,7 @@
 <a href='index.php?r=news/fadd'> Добавить новость</a>
      <a href='index.php?r=news/soun'> Просмотр новости</a>
      <a href='index.php?r=news/sred'> Редактировать </a>
-
+     <a href='index.php?r=news/sdel'> Удалить </a>
 
 
 </body>
