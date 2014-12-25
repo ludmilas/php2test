@@ -3,7 +3,7 @@
 
 class DbConnection  {
 
-    private $pdo;
+    public $pdo;
     private function config()
     {
         return include __DIR__ . '/../config.php';
@@ -43,11 +43,20 @@ class DbConnection  {
             return false;
         else return true;
     }
-    public function queryredd($sql,$id)
+    public function queryredd($sql, $id, $values)
     {
 
         $sth = $this->pdo->prepare($sql);
 
+        $sth->execute(array(':id' => $id) + $values);
+        if ($sth===false)
+            return false;
+        else return true;
+    }
+    public function querydeloun($sql,$id)
+    {
+
+        $sth = $this->pdo->prepare($sql);
         $sth->execute(array(':id' => $id));
         if ($sth===false)
             return false;
