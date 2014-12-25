@@ -88,11 +88,47 @@ protected function actionAll()
         if (isset($_POST['title']) and isset($_POST['text'])) {
             $name_new = $_POST['title'];
             $text_new = $_POST['text'];
-           // $st = new Newmod();
-            $s = Newmod::findUp($id, $name_new, $text_new);
+            $st = new Newmod();
+            $st->id = $id;
+            $st->title = $name_new;
+            $st->text = $text_new;
+            $s = $st->save();
 
         }
         if ($s === false) {
+            echo 'ошибка';
+        }
+        else
+        {
+
+            header('location:index.php?r=news/all');
+        }
+    }
+    protected function actionSdel()
+    {
+        $Views = new View(view);
+        //$st = new Newmod();
+        $Views->news = Newmod::findAll();
+
+        $html = $Views->display('delete.php');
+
+        echo $html;
+    }
+    protected function actionOundel()
+    {
+$id=$_GET['id'];
+$Views = new View(view);
+//$st = new Newmod();
+$Views->del = Newmod::findByPk($id);
+$html = $Views->display('oun_del.php');
+echo $html;
+}
+    protected function actionDelnew()
+    {
+        $id=$_GET['id'];
+       $d = Newmod::delete($id);
+
+        if ($d === false) {
             echo 'ошибка';
         }
         else
