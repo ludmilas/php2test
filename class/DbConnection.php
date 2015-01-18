@@ -27,11 +27,11 @@ class DbConnection  {
 
    }
 
-    public function queryoun($sql,$id)
+    public function queryoun($sql)
     {
 
         $sth = $this->pdo->prepare($sql);
-        $sth->execute(array(':id' => $id));
+        $sth->execute();
         return $sth->fetchAll();
     }
 
@@ -43,7 +43,7 @@ class DbConnection  {
             return false;
         else return true;
     }
-    public function queryredd($sql, $id, $values)
+  /*  public function queryredd($sql, $id, $values)
     {
 
         $sth = $this->pdo->prepare($sql);
@@ -52,12 +52,12 @@ class DbConnection  {
         if ($sth===false)
             return false;
         else return true;
-    }
-    public function querydeloun($sql,$id)
+    }*/
+   public function querydeloun($sql)
     {
 
         $sth = $this->pdo->prepare($sql);
-        $sth->execute(array(':id' => $id));
+        $sth->execute();
         if ($sth===false)
             return false;
         else return true;
