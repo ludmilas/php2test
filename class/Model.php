@@ -22,9 +22,9 @@ static function findAll()
     {
         $table=static::getTableName();
 
-        $sql = 'SELECT * FROM '.$table.' WHERE id=:id';
+        $sql = 'SELECT * FROM '.$table.' WHERE id='.$id;
         $mod = new DbConnection();
-        return $mod->queryoun($sql,$id);
+        return $mod->queryoun($sql);
 
     }
    /* static function findAdd($title,$new)
@@ -69,10 +69,10 @@ static function findAll()
 
 
 
-         $sql = 'UPDATE ' . $table . ' SET ' . implode(',', $col) . ' WHERE id=:id';
+         $sql = 'UPDATE ' . $table . ' SET ' . implode(',', $col) . ' WHERE id='.$this->id;
 
          $mod = new DbConnection();
-         return $mod->queryredd($sql, $this->id, $values);
+         return $mod->queryadd($sql, $values);
      }
     }
 
@@ -80,9 +80,9 @@ static function findAll()
 
         $table=static::getTableName();
 
-        $sql = 'DELETE FROM '.$table.' WHERE id=:id';
+        $sql = 'DELETE FROM '.$table.' WHERE id='.$id;
         $mod = new DbConnection();
-        return $mod->querydeloun($sql,$id);
+        return $mod->querydeloun($sql);
 
     }
 }
